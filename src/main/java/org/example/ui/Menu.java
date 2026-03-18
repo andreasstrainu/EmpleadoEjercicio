@@ -47,10 +47,14 @@ public class Menu {
                     directorio.buscarPorNombre(nombreEmpleado);
                     break;
                 case "3":
-                   // directorio.guardarJSON();
+                    System.out.println("Ruta para guardar el json");
+                    String rutaDirectorio = scan.nextLine();
+                    directorio.guardarJSON(rutaDirectorio);
                     break;
                 case "4":
-
+                    System.out.println("Ruta para guardar el json");
+                    String rutaDirectorio2 = scan.nextLine();
+                    directorio.cargarJSON(rutaDirectorio2);
                     break;
                 default:
                     System.out.println("Saliendo...");
