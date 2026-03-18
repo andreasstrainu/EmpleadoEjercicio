@@ -35,19 +35,8 @@ public class Directorio {
         }
     }
     public void guardarJSON(String ruta){
-        Gson gson = new Gson();
-        try(FileWriter writer = new FileWriter(ruta)){
-            gson.toJson(empleados, writer);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+
     }
     public void cargarJSON(String ruta){
-        Gson gson = new Gson();
-        try(FileReader reader = new FileReader(ruta)){
-            empleados = gson.fromJson(reader, new TypeToken<List<Empleado>>() {}.getType());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 }
