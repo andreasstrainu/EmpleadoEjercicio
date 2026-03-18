@@ -33,6 +33,7 @@ public class Directorio {
     public void imprimir() {
         for (Empleado e : empleados) {
             System.out.println(e);
+            System.out.println("-------");
         }
     }
     public void guardarJSON(String ruta){
