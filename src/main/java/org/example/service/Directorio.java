@@ -4,6 +4,7 @@ import org.example.model.Empleado;
 
 import java.util.List;
 
+
 public class Directorio {
     List<Empleado> empleados;
 
@@ -12,6 +13,24 @@ public class Directorio {
     }
 
     public void agregarEmpleado(Empleado e) {
+        empleados.add(e);
+    }
 
+    public Empleado buscarPorNombre(String nombre) {
+        for (Empleado e : empleados) {
+            if (e.getNombre().equalsIgnoreCase(nombre)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public void imprimir() {
+        for (Empleado e : empleados) {
+            System.out.println(e);
+        }
+    }
+    public void guardarJSON(String ruta){
+        
     }
 }
