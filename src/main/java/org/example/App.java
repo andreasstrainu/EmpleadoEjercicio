@@ -4,10 +4,6 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class App {
     public static void main(String[] args) {
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> develop
     }
 }
