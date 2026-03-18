@@ -3,6 +3,7 @@ package org.example.service;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.model.Empleado;
+import org.example.util.JsonUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -35,19 +36,26 @@ public class Directorio {
         }
     }
     public void guardarJSON(String ruta){
-        Gson gson = new Gson();
-        try(FileWriter writer = new FileWriter(ruta)){
-            gson.toJson(empleados, writer);
-        }catch (Exception e){
+        try (FileWriter writer = new FileWriter(ruta)) {
+            String json = JsonUtils.directorioToJSON(this);
+            writer.write(json);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public void cargarJSON(String ruta){
-        Gson gson = new Gson();
-        try(FileReader reader = new FileReader(ruta)){
-            empleados = gson.fromJson(reader, new TypeToken<List<Empleado>>() {}.getType());
+        try (FileReader reader = new FileReader(ruta)) {
+            StringBuilder sb = new StringBuilder();
+            int c;
+            while ((c = reader.read()) != -1) {
+                sb.append((char) c);
+            }
+
+            Directorio d = JsonUtils.jsonToDirectorio(sb.toString());
+            this.empleados = d.empleados;
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
