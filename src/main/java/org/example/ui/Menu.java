@@ -47,7 +47,7 @@ public class Menu {
                     directorio.buscarPorNombre(nombreEmpleado);
                     break;
                 case "3":
-                    directorio.guardarJSON();
+                   // directorio.guardarJSON();
                     break;
                 case "4":
 
@@ -62,5 +62,4 @@ public class Menu {
         }
 
     }
-
 }
